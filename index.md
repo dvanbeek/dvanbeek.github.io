@@ -31,7 +31,7 @@ title: "Home"
     <div class="about-grid">
       <div class="profile-card">
         <div class="profile-image-wrap">
-          <img class="profile-img" src="{{ '/image/daphnevanbeek.jpg' | relative_url }}" alt="Daphne van Beek">
+          <img class="profile-img" src="{{ '/assets/image/daphnevanbeek.jpg' | relative_url }}" alt="Daphne van Beek">
         </div>
         <div class="profile-badge">
           <span class="status-dot"></span>
