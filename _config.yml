@@ -1,0 +1,32 @@
+# Site identity & Base parameters
+title: "Daphne van Beek"
+tagline: "Healthcare Cloud Architecture & Genomics Innovation"
+description: "Customer Engineer at Google Cloud, bridging clinical practice, advanced genomics, and scalable cloud engineering."
+url: "https://daphnevanbeek.nl"
+baseurl: ""
+
+# Protocol & Build Security
+enforce_ssl: true
+
+# Author Details
+author:
+  name: "Daphne van Beek"
+  role: "Customer Engineer — Healthcare & Life Sciences"
+  company: "Google Cloud"
+  linkedin: "https://www.linkedin.com/in/daphnevanbeek/"
+  email_user: "info"
+  email_domain: "daphnevanbeek.nl"
+
+# Safe parsing settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .git/
+  - .github/

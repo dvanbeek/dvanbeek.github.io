@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Defensive Client-Side Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Escaped Metadata Tags to Prevent Attribute Injection -->
+  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <meta name="author" content="{{ site.author.name | escape }}">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="nav-brand" href="{{ '/' | relative_url }}">
+        <span class="brand-name">{{ site.author.name | escape }}</span>
+        <!-- Codon Triplet Brand Accent -->
+        <span class="brand-dots" title="Genomic Codon Triplet">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#impact" class="nav-link">Impact &amp; Initiatives</a>
+        <a href="#expertise" class="nav-link">Expertise</a>
+        <a href="#experience" class="nav-link">Background</a>
+        <a href="#contact" class="nav-btn">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-meta">
+        <span class="footer-title">{{ site.author.name | escape }}</span>
+        <p class="footer-sub">Transforming patient outcomes through cloud architecture and genomics.</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ site.author.linkedin | escape }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name | escape }}. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Navigation Script -->
+  <script>
+    (function () {
+      'use strict';
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!expanded));
+          navMenu.classList.toggle('is-open');
+        });
+
+        document.querySelectorAll('.nav-link, .nav-btn').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navMenu.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
