@@ -31,7 +31,7 @@ title: "Home"
     <div class="about-grid">
       <div class="profile-card">
         <div class="profile-image-wrap">
-          <img class="profile-img" src="{{ '/assets/image/daphnevanbeek.jpg' | relative_url }}" alt="Daphne van Beek">
+          <img class="profile-img" src="{{ '/assets/image/daphnevanbeek.jpeg' | relative_url }}" alt="Daphne van Beek">
         </div>
         <div class="profile-badge">
           <span class="status-dot"></span>
@@ -71,9 +71,9 @@ title: "Home"
         <span class="impact-badge">Hands-on Collaboration</span>
         <h3 class="impact-title">Hackathons that deliver working solutions</h3>
         <p class="impact-body">
-          I help organize and lead community engineering initiatives tackling real-world challenges faced by pediatric oncology teams across the Netherlands and Belgium. By pairing Google Cloud tech with experienced development teams and medical experts, we build practical prototypes—whether that means speeding up analysis pipelines, improving data access, or finding better ways to support care teams caring for young patients.
+          I help organize and lead community engineering initiatives tackling real-world challenges faced by pediatric oncology teams across the Netherlands and Belgium. By pairing Google Cloud tech with experienced development teams and medical experts, we build practical prototypes—whether that means speeding up analysis pipelines, improving data access, or finding better ways supporting teams caring for young patients.
         </p>
-        <a href="{{ site.author.linkedin }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <a href="https://lnkd.in/p/eT9QpyDt" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
           See the initiative on LinkedIn &rarr;
         </a>
       </div>
@@ -235,7 +235,7 @@ title: "Home"
                 id="emailAction" 
                 data-user="{{ site.author.email_user | escape }}" 
                 data-domain="{{ site.author.email_domain | escape }}">
-          Send and Email
+          Send an Email
         </button>
       </div>
     </div>
@@ -252,7 +252,7 @@ title: "Home"
         const d = this.getAttribute('data-domain');
         if (u && d) {
           const address = u + '@' + d;
-          window.location.href = 'mailto:' + address;
+          window.open('mailto:' + address, '_blank', 'noopener,noreferrer');
         }
       });
     }
